@@ -5,6 +5,7 @@ plugins {
 }
 
 repositories {
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
     mavenCentral()
 }
 
@@ -30,6 +31,7 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
             "org.assertj:assertj-core:3.19.0",
             "org.aeonbits.owner:owner:1.0.12",
+            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-params:$junitVersion")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
@@ -42,6 +44,7 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties += System.properties
     System.setProperty("chromeoptions.prefs", "intl.accept_languages=en")
+    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
