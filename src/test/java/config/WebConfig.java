@@ -18,7 +18,7 @@ public interface WebConfig extends Config {
     String getWebDriverURL();
 
     @Key("baseURL")
-    @DefaultValue("https://demoqa.com/automation-practice-form")
+    @DefaultValue("https://www.ingrammicrocloud.com/")
     String getBaseURL();
 
 
